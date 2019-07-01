@@ -29,11 +29,11 @@ export const DELETE_SMURFS_START = "DELETE_SMURFS_START";
 export const DELETE_SMURFS_SUCCESS = "DELETE_SMURFS_SUCCESS";
 export const DELETE_SMURFS_FAILURE = "DELETE_SMURFS_FAILURE";
 
-export const addSmurfs = () => dispatch => {
+export const addSmurfs = (smurf) => dispatch => {
   dispatch({ type: ADD_SMURFS_START })
   axios
     .post('http://localhost:3333/smurfs', smurf)
-    .then(res => disptach({ type: ADD_SMURFS_SUCCESS, payload: res }))
+    .then(res => dispatch({ type: ADD_SMURFS_SUCCESS, payload: res }))
     .catch(err => dispatch({ type: ADD_SMURFS_FAILURE, payload: err }));
 }
 
@@ -45,7 +45,7 @@ export const getSmurfs = () => dispatch => {
     .catch(err => dispatch({ type: FETCH_SMURFS_FAILURE, payload: err }))
 }
 
-export const updateSmurfs = () => dispatch => {
+export const updateSmurfs = (smurf) => dispatch => {
   dispatch({ type: UPDATE_SMURFS_START })
   axios
     .put('http://localhost:3333/smurfs', smurf)
@@ -53,7 +53,7 @@ export const updateSmurfs = () => dispatch => {
     .catch(err => dispatch({ type: UPDATE_SMURFS_FAILURE, payload: err }))
 }
 
-export const deleteSmurfs = () => dispatch => {
+export const deleteSmurfs = (smurf) => dispatch => {
   dispatch({ type: DELETE_SMURFS_START })
   axios
     .delete('http://localhost:3333/smurfs', smurf)
