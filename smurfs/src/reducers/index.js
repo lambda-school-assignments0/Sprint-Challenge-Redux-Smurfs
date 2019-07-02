@@ -65,7 +65,7 @@ export const smurfsReducer = (state = initialState, action) => {
       return {
         ...state,
         fetchingSmurfs: false,
-        error: ""
+        error: action.payload
       }
     default:
       return state;
