@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { getSmurfs, addSmurfs, updateSmurfs, deleteSmurfs } from '../actions';
+import SmurfForm from './SmurfForm';
 /*
   to wire this component up you're going to need a few things.
   I'll let you do this part on your own. 
@@ -14,7 +15,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this)
     return (
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
@@ -22,8 +22,9 @@ class App extends Component {
         <div>Start inside of your `src/index.js` file!</div>
         <div>Have fun!</div>
         {this.props.smurfs.map(smurf => {
-          return(<p>{smurf.name}</p>)
+          return(<p key={smurf.id}>{smurf.name}</p>)
         })}
+        <SmurfForm addSmurfs={this.props.addSmurfs}/>
       </div>
     );
   }
