@@ -20,7 +20,7 @@ class App extends Component {
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
         {this.props.smurfs.map(smurf => {
-          return <Smurf smurf={smurf}/>
+          return <Smurf key={smurf.id} smurf={smurf}/>
         })}
         <SmurfForm addSmurfs={this.props.addSmurfs}/>
       </div>
